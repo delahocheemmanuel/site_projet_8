@@ -1,0 +1,12 @@
+/* Home.css */
+.realisations img {
+    width: 40%; /* Ajustez la taille des images selon vos besoins */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10%; /* Si vous souhaitez que les images soient circulaires */
+    animation: rotate 100s linear infinite; /* Réglez la durée (10s ici) selon la vitesse souhaitée */
+  }
+  
+  
+  
+  
