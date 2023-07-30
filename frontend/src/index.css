@@ -47,9 +47,19 @@ table {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
+  font-family: 'ArialBlack', sans-serif;
   background-color: white;
 }
 
-
+.video__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 50px;
+  max-width: 1800px;
+  height: 100%;
+}
 

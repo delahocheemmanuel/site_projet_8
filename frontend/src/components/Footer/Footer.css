@@ -7,6 +7,8 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%; /* Largeur du footer */
+    display: flex; /* Pour afficher les éléments les uns à côté des autres */
+    height: 5%;
   }
   
   .footer {
@@ -22,5 +24,8 @@ footer {
   
   .footer h2 {
     margin: 0; /* Supprime les marges par défaut autour du titre */
+    font-size: 1.5rem; /* Taille du titre */
+    align-items: center; /* Alignement vertical du texte au centre */
+    justify-content: center; /* Alignement horizontal du texte au centre */
   }
   

@@ -1,11 +1,57 @@
 /* Home.css */
-.realisations img {
-    width: 40%; /* Ajustez la taille des images selon vos besoins */
-    height: auto;
-    object-fit: cover;
-    border-radius: 10%; /* Si vous souhaitez que les images soient circulaires */
-    animation: rotate 100s linear infinite; /* Réglez la durée (10s ici) selon la vitesse souhaitée */
+.realisations__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+}
+  
+.realisations__title{
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.realisations{
+    display: flex;
+    justify-content: center;
+    gap:5%;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
+.realisations__project{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 3%;
+}    
+  .realisations__project img {
+    width: 400px; /* Ajustez la taille des images selon vos besoins */
+    max-height: 400px;
+    object-fit: cover;
+    padding-bottom: 20px;
+    border-radius: 3%; /* Si vous souhaitez que les images soient circulaires */
+  }
+  .realisations__project img:hover {
+    transform: scale(1.1); /* (150% ici) agrandit l'image de 50% au survol */
+  }
+article h2{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+} 
+  
+  
+  
+
   
   
   

@@ -2,14 +2,15 @@
 header {
     background-color: #333; /* Couleur de fond */
     padding: 10px; /* Espacement interne */
+    height: 100px; /* Hauteur du header */
   }
   
   .NavLink {
     display: flex; /* Pour afficher les liens en ligne */
     justify-content: space-between; /* Pour répartir les liens de manière égale */
-    align-items: center; /* Alignement vertical des éléments au centre */
     max-width: 800px; /* Largeur maximale du header (ajustez selon vos besoins) */
     margin: 0 auto; /* Centrer le header horizontalement */
+    font-size: 3rem;
   }
   
   .NavLink img {
@@ -20,6 +21,7 @@ header {
   .NavLink a {
     color: #fff; /* Couleur du texte des liens */
     text-decoration: none; /* Supprimer le soulignement du texte des liens */
+    align-items: center; /* Alignement vertical des éléments au centre */
     padding: 5px 10px; /* Espacement interne des liens */
     border-radius: 5px; /* Bordures arrondies pour les liens */
   }
@@ -28,9 +30,5 @@ header {
     background-color: #555; /* Couleur de fond au survol des liens */
   }
   
-  /* Style spécial pour le lien "A propos" */
-  .NavLink .About {
-    background-color: #007bff; /* Couleur de fond spéciale */
-    color: #fff; /* Couleur du texte spéciale */
-  }
+  
   
