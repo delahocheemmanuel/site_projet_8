@@ -1,11 +1,14 @@
 import React from 'react';
-import Footer from '../../components/Footer/Footer';
-import bookiVideo720 from '../../assets/videos/booki720.mp4';
-import bookiVideo1080 from '../../assets/videos/booki1080.mp4';
+import { useNavigate } from 'react-router-dom'; // Utilisez 'useNavigate' depuis 'react-router-dom'
+import ReactPlayer from 'react-player';
+import bookiVideo720 from '../../assets/videos/booki720.webm';
+import bookiVideo1080 from '../../assets/videos/booki1080.webm';
 import '../../index.css';
 
 function BookiVid() {
   const videoRef = React.useRef(null);
+  const navigate = useNavigate(); // Initialisez le navigateur avec 'useNavigate' depuis 'react-router-dom'
+
   const [videoSrc, setVideoSrc] = React.useState(bookiVideo720);
 
   React.useEffect(() => {
@@ -18,17 +21,26 @@ function BookiVid() {
     }
   }, []);
 
+  const handleVideoEnd = () => {
+    // Redirection vers la page d'accueil lorsque la vidéo est terminée
+    navigate('/home'); //  page d'accueil
+  };
+
   return (
     <main>
       <div className='video__container'>
         <h1>Titre de votre page</h1>
-        <video ref={videoRef} controls width="100%" height="auto">
-          <source src={videoSrc} type="video/mp4" />
-          {/* Ajoutez d'autres sources ici pour une meilleure compatibilité entre les navigateurs */}
-          Votre navigateur ne prend pas en charge la vidéo.
-        </video>
+        <ReactPlayer
+          ref={videoRef}
+          url={videoSrc}
+          controls
+          width="100%"
+          height="auto"
+          playing
+          muted
+          onEnded={handleVideoEnd} // Appeler handleVideoEnd lorsquela vidéo est terminée
+        />
       </div>
-      <Footer />
     </main>
   );
 }

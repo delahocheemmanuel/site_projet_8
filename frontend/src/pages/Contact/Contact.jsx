@@ -1,64 +1,55 @@
-import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import React, { useState } from "react";
+import "./Contact.css"; // Assurez-vous de spécifier le bon chemin vers votre fichier CSS
 
 const Contact = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [captchaValue, setCaptchaValue] = useState('');
-  const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleMessageChange = (e) => {
-    setMessage(e.target.value);
-  };
-
-  const handleCaptchaChange = (value) => {
-    // This function will be called when the captcha is solved
-    setCaptchaValue(value);
-    setIsCaptchaVerified(true);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if the captcha is verified before sending the form
-    if (!isCaptchaVerified) {
-      alert('Please verify the captcha before submitting the form.');
-      return;
+    try {
+      // Envoi des données au backend (port 4000)
+      const response = await fetch("http://localhost:4000/api/formData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log(data); // Affiche la réponse du backend
+
+      // Réinitialise le formulaire après l'envoi
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Erreur lors de l'envoi des données:", error);
     }
-
-    // Process the form submission here, e.g., send data to the server or trigger an email
-
-    // Reset the form fields after submission
-    setEmail('');
-    setMessage('');
-    setCaptchaValue('');
-    setIsCaptchaVerified(false);
-
-    alert('Form submitted successfully!');
   };
 
   return (
-    <div>
-      <h2>Contact Us</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={handleEmailChange} required />
-        </div>
-        <div>
-          <label>Message:</label>
-          <textarea value={message} onChange={handleMessageChange} required />
-        </div>
-        <div>
-          <ReCAPTCHA sitekey="YOUR_RECAPTCHA_SITE_KEY" onChange={handleCaptchaChange} />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <main className="main__contact" >
+    <form onSubmit={handleSubmit} className="form__contact">
+      <div>
+        <label>Name:</label>
+        <input type="text" name="name" value={formData.name} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="email" name="email" value={formData.email} onChange={handleChange} />
+      </div>
+      <div>
+        <label>Message:</label>
+        <textarea name="message" value={formData.message} onChange={handleChange}></textarea>
+      </div>
+      <button className="form__contact--btn" type="submit">Submit</button>
+    </form>
+    </main>
   );
 };
 

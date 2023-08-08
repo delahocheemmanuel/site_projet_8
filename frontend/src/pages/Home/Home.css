@@ -17,6 +17,7 @@
 
 .realisations{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap:5%;
     align-items: center;
@@ -26,22 +27,38 @@
 .realisations__project{
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     padding-top: 20px;
     width: 500px;
-    height: 500px;
+    height: 600px;
     background-color: white;
     border-radius: 3%;
 }    
   .realisations__project img {
     width: 400px; /* Ajustez la taille des images selon vos besoins */
-    max-height: 400px;
+    height: auto;
+    max-height: 340px;
     object-fit: cover;
     padding-bottom: 20px;
     border-radius: 3%; /* Si vous souhaitez que les images soient circulaires */
   }
   .realisations__project img:hover {
     transform: scale(1.1); /* (150% ici) agrandit l'image de 50% au survol */
+  }
+  .realisations__project--desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    width: 500px;
+    height: 600px;
+    background-color: white;
+    border-radius: 3%;
+  }
+  .realisations__project--desc img{
+    width: 100px; /* Ajustez la taille des images selon vos besoins */
   }
 article h2{
     font-size: 2rem;

@@ -4,6 +4,7 @@ import {
   createBrowserRouter, createRoutesFromElements,
   RouterProvider,Route} from "react-router-dom";
 
+
 import Main from './pages/Main';
 import Error from './pages/Error/Error'
 import About from './pages/About/About'
@@ -22,11 +23,11 @@ import './index.css';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route exact path="/" element= { <Main /> } >
-        <Route path="/home" element={ <Home/> } />
-        <Route path="/about" element={ <About/> } />
-        <Route path="/contact" element={ <Contact/> } />
-        <Route path="/booki" element={ <Booki/> } />
-        <Route path="/bookiVid" element={ <BookiVid/> } />
+        <Route path="/Home" element={ <Home/> } />
+        <Route path="/About" element={ <About/> } />
+        <Route path="/Contact" element={ <Contact/> } />
+        <Route path="/Booki" element={ <Booki/> } />
+        <Route path="/BookiVid" element={ <BookiVid/> } />
         
         
         <Route path="/Kasa" element={ <Kasa/> } />
